@@ -145,9 +145,29 @@ app.get('/', validateShopifyRequest, (req, res) => {
     `);
 });
 
-// Health check route (for Render)
+// Health check route (for Render and UptimeRobot)
 app.get('/health', (req, res) => {
-    res.status(200).json({ status: 'OK', message: 'Dashboard service is running' });
+    res.status(200).json({ 
+        status: 'OK', 
+        message: 'Dashboard service is running',
+        timestamp: new Date().toISOString(),
+        uptime: process.uptime()
+    });
+});
+
+// Public ping endpoint for monitoring services
+app.get('/ping', (req, res) => {
+    res.status(200).send('pong');
+});
+
+// Public status endpoint for UptimeRobot
+app.get('/status', (req, res) => {
+    res.status(200).json({
+        status: 'healthy',
+        service: 'Shopify Dashboard',
+        version: '1.0.0',
+        timestamp: new Date().toISOString()
+    });
 });
 
 // Catch-all route for unauthorized access
