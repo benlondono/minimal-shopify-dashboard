@@ -134,7 +134,7 @@ app.get('/', validateShopifyRequest, (req, res) => {
             
             <div class="dashboard-container">
                 <iframe 
-                    src="https://data-dashboard-xdkiinsyq6cn4tw7pym6ob.streamlit.app/?embed=true&embed_options=dark-theme&referrer=minimal-shopify-dashboard.onrender.com"
+                    src="https://data-dashboard-xdkiinsyq6cn4tw7pym6ob.streamlit.app/?embed=true&embed_options=dark-theme&auth_token=SHOPIFY_ADMIN_2024"
                     class="dashboard-frame"
                     title="Shopify Analytics Dashboard"
                     allow="camera; microphone; geolocation"
